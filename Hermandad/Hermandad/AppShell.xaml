@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Hermandad.Views"
+       x:Class="Hermandad.AppShell" BackgroundColor="#ac0040">
+
+    
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid 
+              HeightRequest="200">
+                <Image Aspect="Fill"
+                   Source="icono_2.jpg"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Hermandad" 
+                FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Notificaciones"
+                      Icon="carta_icono.png" 
+                      ContentTemplate="{DataTemplate views:NotificacionesPage}">
+        </ShellContent>
+        <ShellContent Title="Datos Personales"
+                      Icon="perfil_card.png"
+                      ContentTemplate="{DataTemplate views:PerfilPage}">
+        </ShellContent>
+        <ShellContent Title="Recibos"
+                      Icon="recibo.png"
+                      ContentTemplate="{DataTemplate views:RecibosPage}">
+
+        </ShellContent>
+        <ShellContent Title="Reyes Magos"
+                      Icon="reyes_magos.png"
+                      ContentTemplate="{DataTemplate views:ReyesMagosPage}">
+
+        </ShellContent>
+        <ShellContent Title="Subir Documentos Cepa"
+                      Icon="subir_cepa.png"
+                      ContentTemplate="{DataTemplate views:DocCepaPage}">
+
+        </ShellContent>
+        <ShellContent Title="Nuevos Nacimientos"
+                      Icon="add_users.png"
+                      ContentTemplate="{DataTemplate views:NacimientosPage}">
+
+        </ShellContent>
+    </FlyoutItem>
+
+    <MenuItem Text="Cerrar Sesion"
+              IconImageSource="cerrar_sesion.png"
+              Command="{Binding CerrarSesionCommand}" />
+
+
+</Shell>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hermandad.Views.NotificacionesPage" Shell.TabBarIsVisible="false"
+             xmlns:model="clr-namespace:Hermandad.Models"
+             xmlns:local="clr-namespace:Hermandad.ViewModels">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ActivityIndicator Grid.Row="0" IsRunning="{Binding IsLoading}"
+                               IsEnabled="{Binding IsLoading}"
+                               IsVisible="{Binding IsLoading}"
+                               Color="#ac0040" HorizontalOptions="Center"/>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding MensajesList}"
+                        SelectionMode="None"
+                        >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15,10,15,0" x:DataType="model:Mensaje">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame Grid.RowSpan="3" IsClippedToBounds="True" CornerRadius="20" 
+                               Padding="0" Margin="20"
+                               HasShadow="False">
+                            <Image Source="icono_3.jpeg" WidthRequest="40" HeightRequest="40"/>
+                        </Frame>
+
+                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+
+                            <Label FontSize="Medium"
+                                    Text="{Binding emisor}"
+                                   HorizontalOptions="StartAndExpand" TextColor="Black"/>
+
+                            <Label Text="{Binding Fecha}"
+                                   HorizontalTextAlignment="End"
+                                   HorizontalOptions="End"
+                                   FontSize="Micro" 
+                                   TextColor="#AAA"/>
+
+                        </StackLayout>
+
+                        <Label Grid.Row="1" Grid.Column="1" 
+                                Text="{Binding mensaje}"
+                               LineBreakMode="TailTruncation"
+                               FontSize="Small" TextColor="#888888"/>
+
+                        <BoxView Grid.Row="2" Grid.ColumnSpan="2" 
+                                 BackgroundColor="#ac0040"
+                                 HeightRequest="1"
+                                 Margin="-10,25,-10,0"/>
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:MensajesViewModel}}, Path=MensajeSeleccionado}"
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
