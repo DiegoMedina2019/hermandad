@@ -17,6 +17,7 @@ namespace Hermandad.Views
         public NacimientosPage()
         {
             InitializeComponent();
+            this.BindingContext = new NacimientosViewModel();
         }
     }
 }

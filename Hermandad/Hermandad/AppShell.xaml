@@ -17,6 +17,10 @@
 
     <FlyoutItem Title="Hermandad" 
                 FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Inicio"
+                      Icon="home.png"
+                      ContentTemplate="{DataTemplate views:HomePage}">
+        </ShellContent>
         <ShellContent Title="Notificaciones"
                       Icon="carta_icono.png" 
                       ContentTemplate="{DataTemplate views:NotificacionesPage}">
@@ -25,7 +29,11 @@
                       Icon="perfil_card.png"
                       ContentTemplate="{DataTemplate views:PerfilPage}">
         </ShellContent>
-        <ShellContent Title="Recibos"
+        <ShellContent Title="Nuestras Redes"
+                      Icon="redes.png" 
+                      ContentTemplate="{DataTemplate views:RedesSocialesPage}">
+        </ShellContent>
+        <!--<ShellContent Title="Recibos"
                       Icon="recibo.png"
                       ContentTemplate="{DataTemplate views:RecibosPage}">
 
@@ -35,7 +43,7 @@
                       ContentTemplate="{DataTemplate views:ReyesMagosPage}">
 
         </ShellContent>
-        <ShellContent Title="Subir Documentos Cepa"
+        <ShellContent Title="Subir Documentos Sepa"
                       Icon="subir_cepa.png"
                       ContentTemplate="{DataTemplate views:DocCepaPage}">
 
@@ -44,12 +52,11 @@
                       Icon="add_users.png"
                       ContentTemplate="{DataTemplate views:NacimientosPage}">
 
-        </ShellContent>
+        </ShellContent>-->
     </FlyoutItem>
 
     <MenuItem Text="Cerrar Sesion"
-              IconImageSource="cerrar_sesion.png"
-              Command="{Binding CerrarSesionCommand}" />
+              IconImageSource="cerrarSesion.png" Clicked="MenuItem_Clicked" />
 
 
 </Shell>

@@ -19,5 +19,10 @@ namespace Hermandad
             Routing.RegisterRoute(nameof(DetalleMensajePage), typeof(DetalleMensajePage));
            // Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new LoginPage();
+        }
     }
 }

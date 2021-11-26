@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hermandad.Views.FamiliaresPage" Shell.TabBarIsVisible="true"
+             xmlns:model="clr-namespace:Hermandad.Models"
+             xmlns:local="clr-namespace:Hermandad.ViewModels">
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout>
+                    <Label FontSize="Title" 
+                            Padding="0,15,0,0"
+                            Text="Datos Familiares"
+                            HorizontalOptions="CenterAndExpand" TextColor="#ac0040"/>
+                </StackLayout>
+
+                <CollectionView Grid.Row="1" ItemsSource="{Binding FamiliaresList}"
+                                SelectionMode="None" Margin="10,0,10,0"
+                                >
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+
+                            <Frame CornerRadius="30" HasShadow="True" BorderColor="Black">
+                                
+                                <Grid Padding="5,5,5,5" x:DataType="model:Familiar" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" 
+                                                 Grid.Row="0" Grid.ColumnSpan="2">
+                                        <Label FontSize="Subtitle"
+                                                Text="Parentesco:"
+                                               HorizontalOptions="Start" VerticalOptions="Center" TextColor="Black"/>
+
+                                        <Entry Text="{Binding parentesco}"
+                                               HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                        
+                                    </StackLayout>
+                                    <BoxView BackgroundColor="#ac0040" HeightRequest=".1" WidthRequest="500"
+                                             Grid.Row="1" Grid.ColumnSpan="2"
+                                             HorizontalOptions="CenterAndExpand"/>
+                                    
+                                    <StackLayout  Grid.Row="2" Grid.Column="0">
+                                        <Label FontSize="Subtitle"
+                                                Text="Nombre:"
+                                               VerticalOptions="Start" TextColor="Black"/>
+
+                                        <Entry Text="{Binding nombre}"
+                                               VerticalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                    <StackLayout  Grid.Row="2" Grid.Column="1">
+                                        <Label FontSize="Subtitle"
+                                                Text="Apellido:"
+                                               VerticalOptions="Start" TextColor="Black"/>
+
+                                        <Entry Text="{Binding apellido}"
+                                               VerticalOptions="EndAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout  Grid.Row="3" Grid.Column="0">
+                                        <Label FontSize="Subtitle"
+                                                Text="NIF:"
+                                               VerticalOptions="Start" TextColor="Black"/>
+
+                                        <Entry Text="{Binding nif}"
+                                               VerticalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                    <StackLayout  Grid.Row="3" Grid.Column="1">
+                                        <Label FontSize="Subtitle"
+                                                Text="Fecha Nacimiento:"
+                                               VerticalOptions="Start" TextColor="Black"/>
+
+                                        <DatePicker Format="dd/MM/yyyy" Date="{Binding fechanacimiento}" />
+                                    </StackLayout>
+
+                                </Grid>
+                            </Frame>
+                            
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+
+
+                <StackLayout Grid.Row="2" HorizontalOptions="Center" Margin="0,10,0,10">
+                    <Button Text="Editar datos" TextColor="White" BackgroundColor="#ac0040"  CornerRadius="25"
+                                Command="{Binding Btn_EditarFamiliares}"
+                                x:Name="btnEditarFamiliares"
+                                FontSize="Subtitle"/>
+                </StackLayout>
+            </Grid>
+
+
+            <Grid Opacity=".7" BackgroundColor="Black"
+                  IsVisible="{Binding IsLoading}">
+                <ActivityIndicator Grid.Row="0" IsRunning="{Binding IsLoading}"
+                                   Color="#ac0040" HorizontalOptions="Center">
+                </ActivityIndicator>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

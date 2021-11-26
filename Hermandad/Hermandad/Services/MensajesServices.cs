@@ -36,24 +36,35 @@ namespace Hermandad.Services
             return httpClient;
 
         }
-        public async static Task<List<Mensaje>> GetMensajes()
+        public async static Task<List<Mensaje_obj>> GetMensajes()
         {
             var id = Application.Current.Properties["idafiliados"].ToString();
-            var response = await client.GetAsync("https://172.18.100.97:433/api/mensajes/" + id);// apesar q ssl es con localhost desde la virtual vede ser una ip
+
+            //var url = "https://192.168.1.38:433/api/mensajes_hermndad/" + id; //local
+            var url = "https://82.159.210.91:433/api/mensajes_hermndad/" + id; //servidor
+
+            var response = await client.GetAsync(url);// apesar q ssl es con localhost desde la virtual vede ser una ip
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
                 //var format = "dd-MM-yyyy hh:mm:ss"; // your datetime format
                 //var dateTimeConverter = new IsoDateTimeConverter { DateTimeFormat = format };
-                return JsonConvert.DeserializeObject<List<Mensaje>>(json);
+                return JsonConvert.DeserializeObject<List<Mensaje_obj>>(json);
             }
             return default;
         }
-        public async static Task UpdateMensajes(int id, Mensaje mjs)
+        public async static Task UpdateMensajes(int id, Mensaje_obj mjs)
         {
 
-            string url = "https://172.18.100.97:433/api/mensajes/" + id.ToString();
-            string body = JsonConvert.SerializeObject(mjs);
+            //string url = "https://192.168.1.38:433/api/mensajes/" + id.ToString();
+            string url = "https://82.159.210.91:433/api/mensajes/" + id.ToString();
+            object o = new
+            {
+                mjs.FechaVisto,
+                mjs.idModificacion,
+                db = "hermandad"
+            };
+            string body = JsonConvert.SerializeObject(o);
 
             var response = await client.PutAsync(url, new StringContent(body, Encoding.UTF8, "application/json"));// apesar q ssl es con localhost desde la virtual vede ser una ip
             if (response.IsSuccessStatusCode)

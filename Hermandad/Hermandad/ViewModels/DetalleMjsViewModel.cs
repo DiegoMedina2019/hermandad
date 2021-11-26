@@ -14,9 +14,9 @@ namespace Hermandad.ViewModels
         private string emisor;
         private string mensaje;
         private string fecha;
-        private Mensaje mjs;
+        private Mensaje_obj mjs;
 
-        public DetalleMjsViewModel(Mensaje mjs)
+        public DetalleMjsViewModel(Mensaje_obj mjs)
         {
             this.mjs = mjs;
             LoadMjsId(mjs);
@@ -51,19 +51,23 @@ namespace Hermandad.ViewModels
             }
         }
 
-        private void LoadMjsId(Mensaje m)
+        private void LoadMjsId(Mensaje_obj m)
         {
             try
             {
                 //var item = await DataStore.GetItemAsync(itemId);
-                Emisor = m.emisor;
-                Mensaje = m.mensaje;
-                Fecha = m.Fecha;
+                Emisor = m.nombre;
+                Mensaje = m.Mensaje;
+                Fecha = m.Fecha_;
             }
             catch (Exception)
             {
                 Debug.WriteLine("Failed to Load Item");
             }
+        }
+        public async void SetVisto()
+        {
+            await mjs.UpateMensaje();
         }
     }
 }

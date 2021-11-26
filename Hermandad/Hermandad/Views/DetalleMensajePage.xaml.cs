@@ -14,10 +14,16 @@ namespace Hermandad.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetalleMensajePage : ContentPage
     {
-        public DetalleMensajePage(Mensaje mjs)
+        private DetalleMjsViewModel vm;
+        public DetalleMensajePage(Mensaje_obj mjs)
         {
             InitializeComponent();
-            BindingContext =  new DetalleMjsViewModel(mjs);
+            BindingContext = vm = new DetalleMjsViewModel(mjs);
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            vm.SetVisto();
         }
     }
 }

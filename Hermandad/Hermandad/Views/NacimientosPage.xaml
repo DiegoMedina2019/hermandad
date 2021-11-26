@@ -3,10 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hermandad.Views.NacimientosPage" Shell.TabBarIsVisible="false">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Nacimientos!!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="15">
+            <Label Text="Nuevo Nacimiento"
+                   TextColor="Black"
+                   HorizontalOptions="CenterAndExpand" FontSize="Title"/>
+            <BoxView HeightRequest="1" BackgroundColor="#ac0040"/>
+
+            <Label Text="Fecha de nacimiento" Margin="0,15,0,0"
+                   TextColor="Black"
+                   HorizontalOptions="StartAndExpand" 
+                   FontSize="Medium"/>
+            <DatePicker HorizontalOptions="StartAndExpand" TextColor="Black" WidthRequest="400"
+                   Date="{Binding Fecha_Nacimiento, Mode=TwoWay}" Format="dd/MM/yyyy"/>
+
+            <Label Text="Nombre"
+                   TextColor="Black"
+                   HorizontalOptions="StartAndExpand" 
+                   FontSize="Medium"/>
+            <Entry HorizontalOptions="StartAndExpand" TextColor="Black" WidthRequest="400"
+                   Text="{Binding Nombre, Mode=TwoWay}"/>
+
+            <Label Text="Apellido"
+                   TextColor="Black"
+                   HorizontalOptions="StartAndExpand" 
+                   FontSize="Medium"/>
+            <Entry HorizontalOptions="StartAndExpand" TextColor="Black" WidthRequest="400"
+                   Text="{Binding Apellido, Mode=TwoWay}"/>
+
+            <Button Text="Registrar" Command="{Binding BtnAltaNacimiento}" 
+                    BackgroundColor="#ac0040" CornerRadius="40"
+                    Margin="0,10,0,10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

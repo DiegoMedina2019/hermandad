@@ -5,32 +5,40 @@
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="false">
     <ContentPage.Content>
-        <Grid>
-            <BoxView  Color="#ac0040"/>
-
+        <ScrollView>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
+                <BoxView  Color="#ac0040"/>
 
-                <Image Source="icono_3.jpeg" Grid.Row="0" WidthRequest="100" HeightRequest="100" Margin="0,50,0,30"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
 
-                <StackLayout Grid.Row="1" Padding="30,20">
-                    <Entry Placeholder="Ingrese su correo" 
+                    <Image Source="icono_2.jpeg" Grid.Row="0" WidthRequest="100" HeightRequest="100" Margin="0,50,0,30"/>
+
+                    <StackLayout Grid.Row="1" Padding="30,20">
+                        <Entry Placeholder="Ingrese su correo" 
                            PlaceholderColor="White" Text="{Binding EmailTxt, Mode=TwoWay}"
                            TextColor="White"
                            Keyboard="Email"/>
-                    <Entry Placeholder="Ingrese su contraseña" 
+                        <Entry Placeholder="Ingrese su contraseña" 
                            PlaceholderColor="White" IsPassword="True" Text="{Binding PassTxt, Mode=TwoWay}"
                            TextColor="White"/>
-                    <Button Text="Iniciar Sesion" TextColor="White" BackgroundColor="Black"  CornerRadius="25"
+                        <Button Text="Iniciar Sesion" TextColor="White" BackgroundColor="Black"  CornerRadius="25"
                             Command="{Binding LoginCommand}"
                             x:Name="btnIniciar"
                             Margin="0,25,0,0"/>
-                </StackLayout>
+                        
+                        <Button Text="Registrarse" TextColor="White" BackgroundColor="Black"  CornerRadius="25"
+                            Command="{Binding RegistrarseLabel}"
+                            x:Name="btnRegistro"
+                            Margin="0,25,0,0"/>
+                    </StackLayout>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>

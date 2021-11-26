@@ -13,15 +13,16 @@ namespace Hermandad.ViewModels
     public class MensajesViewModel: BaseViewModel
     {
         #region Atributos
-        private List<Mensaje> mensajesDelJson;
+        private List<Mensaje_obj> mensajesDelJson;
         private bool isLoading;
-        private ObservableCollection<Mensaje> mensajesList;
-        public Command<Mensaje> MensajeSeleccionado { get; }
+        private bool noTineMjs;
+        private ObservableCollection<Mensaje_obj> mensajesList;
+        public Command<Mensaje_obj> MensajeSeleccionado { get; }
         #endregion
 
         public MensajesViewModel()
         {
-            MensajeSeleccionado = new Command<Mensaje>(OnClickMjs);
+            MensajeSeleccionado = new Command<Mensaje_obj>(OnClickMjs);
         }
 
         #region Propiedades
@@ -30,7 +31,12 @@ namespace Hermandad.ViewModels
             get { return isLoading; }
             set { isLoading = value; this.OnPropertyChanged(); }
         }
-        public ObservableCollection<Mensaje> MensajesList
+        public bool NoTineMjs
+        {
+            get { return noTineMjs; }
+            set { noTineMjs = value; this.OnPropertyChanged(); }
+        }
+        public ObservableCollection<Mensaje_obj> MensajesList
         {
             get { return mensajesList; }
             set { mensajesList = value; this.OnPropertyChanged(); }
@@ -40,14 +46,15 @@ namespace Hermandad.ViewModels
         #region Metodos
         public async Task LoadMensajes()
         {
-            isLoading = true;
+            IsLoading = true;
+            
 
             mensajesDelJson = await MensajesServices.GetMensajes();
-            MensajesList = new ObservableCollection<Mensaje>(mensajesDelJson);
-
-            isLoading = false;
+            MensajesList = new ObservableCollection<Mensaje_obj>(mensajesDelJson);
+            NoTineMjs = MensajesList.Count == 0;
+            IsLoading = false;
         }
-        private async void OnClickMjs(Mensaje mjs)
+        private async void OnClickMjs(Mensaje_obj mjs)
         {
             if (mjs == null)
                 return;

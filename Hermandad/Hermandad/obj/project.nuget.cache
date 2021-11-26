@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YLgu50a0nkLyFKA7/5IQJ/URl4Sys7Pe59GUfDq7INo0OfRAoRgY72DYPqORGVKgnZ8Vz6RapoXFxBvnVkl2cg==",
+  "dgSpecHash": "a8Ei5f0lda6RGRULkhoBZJaP1UeYwBIq0gnGmks213ujVeSytOlVeOcK+nKgk0fIXOIl8DAZxJVQzXo5eqV6aw==",
   "success": true,
   "projectFilePath": "E:\\freelance\\Coco\\Hermandad\\Hermandad\\Hermandad\\Hermandad.csproj",
   "expectedPackageFiles": [
@@ -8,8 +8,32 @@
     "C:\\Users\\diego\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\xam.plugins.downloadmanager\\1.4.0\\xam.plugins.downloadmanager.1.4.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512"
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\xamd.plugins.forms.imagecarousel\\1.0.2\\xamd.plugins.forms.imagecarousel.1.0.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Xam.Plugins.DownloadManager 1.4.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETStandard,Version=v2.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Xam.Plugins.DownloadManager",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Xamd.Plugins.Forms.ImageCarousel 1.0.2\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETStandard,Version=v2.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Xamd.Plugins.Forms.ImageCarousel",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }
