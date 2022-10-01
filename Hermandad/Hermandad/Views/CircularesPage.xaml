@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hermandad.Views.CircularesPage"
+             Shell.TabBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Para descargar las circulares haz clic en ir"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Button Text="IR..."
+                            TextColor="White" BackgroundColor="#ac0040"  CornerRadius="25"
+                                Command="{Binding Btn_descargaCirculares}"
+                                x:Name="btnDescargarDoc"
+                                FontSize="Subtitle"
+                            Margin="10,10,10,10"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

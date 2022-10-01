@@ -18,6 +18,8 @@ namespace Hermandad.Models
         public string telefono2 { get; set; }
         public string email { get; set; }
         public string Pass { get; set; }
+        public int login_init { get; set; }
+        public string foto { get; set; }
         public List<Familiar> familiares { get; set; }
         //public DateTime FechaNacimiento { get; set; }
         //public int Sexo { get; set; }

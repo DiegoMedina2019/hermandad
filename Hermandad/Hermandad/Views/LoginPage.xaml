@@ -31,7 +31,7 @@
                             x:Name="btnIniciar"
                             Margin="0,25,0,0"/>
                         
-                        <Button Text="Registrarse" TextColor="White" BackgroundColor="Black"  CornerRadius="25"
+                        <Button Text="Olvide mi contraseña" TextColor="White" BackgroundColor="Black"  CornerRadius="25"
                             Command="{Binding RegistrarseLabel}"
                             x:Name="btnRegistro"
                             Margin="0,25,0,0"/>

@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "a8Ei5f0lda6RGRULkhoBZJaP1UeYwBIq0gnGmks213ujVeSytOlVeOcK+nKgk0fIXOIl8DAZxJVQzXo5eqV6aw==",
+  "dgSpecHash": "SWvhD7c0DNhABzRgPI+iMqJ/Pb0tmoQ74cxBULebly4Zqyq6z2FDz6a2rl23ftQLQP1uLmnOOfbUnn28YXrAkg==",
   "success": true,
-  "projectFilePath": "E:\\freelance\\Coco\\Hermandad\\Hermandad\\Hermandad\\Hermandad.csproj",
+  "projectFilePath": "J:\\Trabajos\\freelancer\\COCO\\hermandad\\Hermandad\\Hermandad\\Hermandad.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\diego\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\diego\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\diego\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\diego\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\diego\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
-    "C:\\Users\\diego\\.nuget\\packages\\xam.plugins.downloadmanager\\1.4.0\\xam.plugins.downloadmanager.1.4.0.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512",
-    "C:\\Users\\diego\\.nuget\\packages\\xamd.plugins.forms.imagecarousel\\1.0.2\\xamd.plugins.forms.imagecarousel.1.0.2.nupkg.sha512"
+    "C:\\Users\\Diego\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\xam.plugins.downloadmanager\\1.4.0\\xam.plugins.downloadmanager.1.4.0.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\xamarin.essentials\\1.7.3\\xamarin.essentials.1.7.3.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\xamarin.forms\\5.0.0.2478\\xamarin.forms.5.0.0.2478.nupkg.sha512",
+    "C:\\Users\\Diego\\.nuget\\packages\\xamd.plugins.forms.imagecarousel\\1.0.2\\xamd.plugins.forms.imagecarousel.1.0.2.nupkg.sha512"
   ],
   "logs": [
     {

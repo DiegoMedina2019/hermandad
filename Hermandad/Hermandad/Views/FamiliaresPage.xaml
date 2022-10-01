@@ -78,7 +78,7 @@
                                                VerticalOptions="Start" TextColor="Black"/>
 
                                         <Entry Text="{Binding nif}"
-                                               VerticalOptions="EndAndExpand"/>
+                                               VerticalOptions="EndAndExpand" IsReadOnly="True"/>
                                     </StackLayout>
                                     <StackLayout  Grid.Row="3" Grid.Column="1">
                                         <Label FontSize="Subtitle"

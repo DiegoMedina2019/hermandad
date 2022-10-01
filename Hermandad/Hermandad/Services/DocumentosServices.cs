@@ -32,10 +32,10 @@ namespace Hermandad.Services
         }
         public async static Task<List<Documento>> GetReyes()
         {
+            
             var id = Application.Current.Properties["idafiliados"].ToString();
 
-            //var url = "https://192.168.1.38:433/api/reyes_magos/" + id; //local
-            var url = "https://82.159.210.91:433/api/reyes_magos/" + id; //servidor
+            string url = App.api + "reyes_magos/" + id;
 
             var response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode)
@@ -49,8 +49,7 @@ namespace Hermandad.Services
         {
             try
             {
-                //string url = "https://192.168.1.38:433/api/sepa"; //local
-                string url = "https://82.159.210.91:433/api/sepa"; // server
+                string url = App.api + "sepa";
 
                 StreamContent scontent = new StreamContent(file.GetStream());
                 scontent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
@@ -73,7 +72,7 @@ namespace Hermandad.Services
                 multi.Add(scontent);
                 multi.Add(new StringContent(body, Encoding.UTF8, "application/json"));
                // client.BaseAddress = new Uri(Constants.API_ROOT_URL);
-                var result = client.PostAsync(url, multi).Result;
+                var result =  client.PostAsync(url, multi).Result;
                 Debug.WriteLine(result.ReasonPhrase);
                 return true;
                 

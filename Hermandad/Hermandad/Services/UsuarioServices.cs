@@ -12,7 +12,7 @@ namespace Hermandad.Services
     public class UsuarioServices
     {
         public static readonly HttpClient client = CrearHttpClient();
-        private static Usuario defalut;
+        //private static Usuario defalut;
 
         private static HttpClient CrearHttpClient()
         {
@@ -39,8 +39,7 @@ namespace Hermandad.Services
 
         internal async static Task<bool> SetPassword(string idafiliado, string pass)
         {
-            //string url = "https://192.168.1.38:433/api/set_pass_afiliado_hermandad/" + idafiliado; //local
-            string url = "https://82.159.210.91:433/api/set_pass_afiliado_hermandad/" + idafiliado; // server
+            string url = App.api + "set_pass_afiliado_hermandad/" + idafiliado;
             object a = new
             {
                 Pass = pass
@@ -67,10 +66,42 @@ namespace Hermandad.Services
             }
         }
 
+        //Sobre escribo el metodo para setPass para inicios de usuarios por primera ves, que el server se encargara 
+        //de cambiar el estado de inicio, es decir de 0 (no inicio sesion nunca) a 1 (inicio sesion por primera vez)
+        internal async static Task<bool> SetPassword(string idafiliado, string pass, bool isInit)
+        {
+            string url = App.api + "set_pass_afiliado_hermandad/" + idafiliado;
+            object a = new
+            {
+                password = pass,
+                isInit
+            };
+            string body = JsonConvert.SerializeObject(a);
+            var respuesta = await client.PutAsync(url, new StringContent(body, Encoding.UTF8, "application/json"));
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+                string json = await respuesta.Content.ReadAsStringAsync();
+                if (json.Contains("\"affectedRows\":1"))
+                {
+                    return respuesta.IsSuccessStatusCode;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return respuesta.IsSuccessStatusCode;
+            }
+        }
+
+
         internal async static Task<bool> ValidarAfiliado(string emailTxt, string nombreTxt, string v)//sobrecarga para el registro
         {
-            //string url = "https://192.168.1.38:433/api/login"; //local
-            string url = "https://82.159.210.91:433/api/login"; // server
+            string url = App.api + "login";
             object a = new
             {
                 email = emailTxt,
@@ -97,9 +128,7 @@ namespace Hermandad.Services
 
         internal async static Task<string> AddNacimiento(object a)
         {
-            //string url = "https://192.168.1.38:433/api/nacimiento";
-            string url = "https://82.159.210.91:433/api/nacimiento"; // server
-
+            string url = App.api + "nacimiento";
             string body = JsonConvert.SerializeObject(a);
 
             var respuesta = await client.PostAsync(url, new StringContent(body, Encoding.UTF8, "application/json"));
@@ -117,9 +146,7 @@ namespace Hermandad.Services
 
         public async static Task<bool> ValidarUsuario(string correo, string pass)
         {
-            //string url = "https://192.168.1.38:433/api/login";
-            string url = "https://82.159.210.91:433/api/login"; // server
-
+            string url = App.api + "login";
             object a = new
             {
                 email = correo,
@@ -138,6 +165,7 @@ namespace Hermandad.Services
                 List<Usuario> user = JsonConvert.DeserializeObject<List<Usuario>>(json);
 
                 Application.Current.Properties["idafiliados"] = (respuesta.IsSuccessStatusCode) ? user[0].idafiliado : 0;
+                App.Current.Properties["login_init"] = user[0].login_init;
 
             }
             return respuesta.IsSuccessStatusCode;
@@ -147,9 +175,7 @@ namespace Hermandad.Services
         public async static Task<Usuario> GetUsuario()
         {
             var id = Application.Current.Properties["idafiliados"].ToString();
-            //string url = "https://192.168.1.38:433/api/afiliado_Hermandad/" + id;
-            string url = "https://82.159.210.91:433/api/afiliado_Hermandad/" +id; // server
-
+            string url = App.api + "afiliado_Hermandad/" + id;
 
             var respuesta = await client.GetAsync(url);
 
@@ -165,9 +191,7 @@ namespace Hermandad.Services
         public async static Task<List<Familiar>> GetFamilia()
         {
             var id = Application.Current.Properties["idafiliados"].ToString();
-            //string url = "https://192.168.1.38:433/api/familiares/" + id;
-            string url = "https://82.159.210.91:433/api/familiares/" +id; // server
-
+            string url = App.api + "familiares/" + id;
 
             var respuesta = await client.GetAsync(url);
 
@@ -183,9 +207,7 @@ namespace Hermandad.Services
         public static async Task<string> PuedeEditar(object a)
         {
             Usuario u = (Usuario)a;
-            //string url = "https://192.168.1.38:433/api/afiliadoAux/" + u.idafiliado;
-            string url = "https://82.159.210.91:433/api/afiliadoAux/" + u.idafiliado; // server
-
+            string url = App.api + "afiliadoAux/" + u.idafiliado;
             //string body = JsonConvert.SerializeObject(datos);
 
             var respuesta = await client.GetAsync(url);
@@ -221,8 +243,7 @@ namespace Hermandad.Services
                 editado = 1,
                 Afiliados_idAfiliados = u.idafiliado
             };
-            //string url = "https://192.168.1.38:433/api/afiliadoAux";
-            string url = "https://82.159.210.91:433/api/afiliadoAux"; // server
+            string url = App.api + "afiliadoAux";
 
             string body = JsonConvert.SerializeObject(o);
 
@@ -245,8 +266,7 @@ namespace Hermandad.Services
                 afiliado = a,
                 db = "hermandad"
             };
-            //string url = "https://192.168.1.38:433/api/afiliado/" + a.idafiliado;
-            string url = "https://82.159.210.91:433/api/afiliado/" + a.idafiliado;
+            string url = App.api + "afiliado/" + a.idafiliado;
 
             string body = JsonConvert.SerializeObject(o);
 
@@ -269,8 +289,7 @@ namespace Hermandad.Services
             {
                 a.familiares
             };
-            //string url = "https://192.168.1.38:433/api/afiliado_familia_Update";
-            string url = "https://82.159.210.91:433/api/afiliado_familia_Update";
+            string url = App.api + "afiliado_familia_Update";
 
             string body = JsonConvert.SerializeObject(o);
 
@@ -291,8 +310,4 @@ namespace Hermandad.Services
 
     }
 
-    internal class rsp
-    {
-        public string callMjs { get; set; }
-    }
 }

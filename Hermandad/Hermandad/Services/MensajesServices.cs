@@ -40,8 +40,7 @@ namespace Hermandad.Services
         {
             var id = Application.Current.Properties["idafiliados"].ToString();
 
-            //var url = "https://192.168.1.38:433/api/mensajes_hermndad/" + id; //local
-            var url = "https://82.159.210.91:433/api/mensajes_hermndad/" + id; //servidor
+            string url = App.api + "mensajes_hermndad/" + id;
 
             var response = await client.GetAsync(url);// apesar q ssl es con localhost desde la virtual vede ser una ip
             if (response.IsSuccessStatusCode)
@@ -55,9 +54,8 @@ namespace Hermandad.Services
         }
         public async static Task UpdateMensajes(int id, Mensaje_obj mjs)
         {
+            string url = App.api + "mensajes/" + id.ToString();
 
-            //string url = "https://192.168.1.38:433/api/mensajes/" + id.ToString();
-            string url = "https://82.159.210.91:433/api/mensajes/" + id.ToString();
             object o = new
             {
                 mjs.FechaVisto,

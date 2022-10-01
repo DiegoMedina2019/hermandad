@@ -31,8 +31,7 @@ namespace Hermandad.Services
         {
             var id = Application.Current.Properties["idafiliados"].ToString();
 
-            //var url = "https://192.168.1.38:433/api/recibos/" + id; //local
-            var url = "https://82.159.210.91:433/api/recibos/" + id; //servidor
+            string url = App.api + "recibos/" + id;
 
             var response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode)

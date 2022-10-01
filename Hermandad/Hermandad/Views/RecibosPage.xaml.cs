@@ -20,10 +20,10 @@ namespace Hermandad.Views
             InitializeComponent();
             BindingContext = vm = new ReciboViewModel();
         }
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            vm.LoadRecibosAsync();
+            await vm.LoadRecibosAsync();
         }
 
     }

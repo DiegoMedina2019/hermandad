@@ -16,21 +16,21 @@
                    HorizontalOptions="StartAndExpand" 
                    FontSize="Medium"/>
                 <Entry HorizontalOptions="StartAndExpand" TextColor="Black" WidthRequest="400"
-                   Text="{Binding Nombre, Mode=TwoWay}"/>
+                   Text="{Binding Nombre, Mode=TwoWay}" IsReadOnly="true"/>
 
                 <Label Text="Apellido" Margin="0,15,0,0"
                    TextColor="Black"
                    HorizontalOptions="StartAndExpand" 
                    FontSize="Medium"/>
                 <Entry HorizontalOptions="StartAndExpand" TextColor="Black" WidthRequest="400"
-                   Text="{Binding Apellido, Mode=TwoWay}"/>
+                   Text="{Binding Apellido, Mode=TwoWay}" IsReadOnly="true"/>
 
                 <Label Text="NIF" Margin="0,15,0,0"
                    TextColor="Black"
                    HorizontalOptions="StartAndExpand" 
                    FontSize="Medium"/>
                 <Entry HorizontalOptions="StartAndExpand" TextColor="Black" WidthRequest="400"
-                   Text="{Binding NIF, Mode=TwoWay}" />
+                   Text="{Binding NIF, Mode=TwoWay}" IsReadOnly="true" />
 
                 <Label Text="Codigopostal" Margin="0,15,0,0"
                    TextColor="Black"

@@ -19,7 +19,7 @@ namespace Hermandad.ViewModels
         {
             LoginCommand = new Command(OnLoginClicked);
             RegistrarseLabel = new Command(LinkRegister);
-    }
+        }
 
         public string EmailTxt
         {
@@ -45,7 +45,16 @@ namespace Hermandad.ViewModels
             //Application.Current.Properties["idafiliados"] = 91356;
             if (respuesta)
             {
-                Application.Current.MainPage = new AppShell();
+                if (Application.Current.Properties["login_init"].ToString() == "1")
+                {
+                    Application.Current.MainPage = new AppShell();
+                }
+                else
+                {
+                    bool isInit = true;
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new EditarPassPage(isInit));
+                    await Application.Current.MainPage.DisplayAlert("Aviso!", "Para brindar mas seguridad debera cambiar su contraseña la primera vez que se loguea", "ok");
+                }
             }
             else
             {

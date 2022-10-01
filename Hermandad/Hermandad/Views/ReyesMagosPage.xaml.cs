@@ -20,10 +20,10 @@ namespace Hermandad.Views
             InitializeComponent();
             this.BindingContext = vm = new ReyesViewModel();
         }
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            vm.LoadReyesAsync();
+            await vm.LoadReyesAsync();
         }
     }
 }

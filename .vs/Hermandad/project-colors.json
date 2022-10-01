@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "732fd60d-48c4-47de-98c7-9920b9938fec": {
+      "ProjectGuid": "732fd60d-48c4-47de-98c7-9920b9938fec",
+      "DisplayName": "Hermandad",
+      "ColorIndex": 0
+    },
+    "d6c5fe3c-788d-4150-96cb-4d9b9f7c52a9": {
+      "ProjectGuid": "d6c5fe3c-788d-4150-96cb-4d9b9f7c52a9",
+      "DisplayName": "Hermandad.Android",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}
